@@ -94,6 +94,30 @@ Or in VS Code / Cursor: choose **TechVeda (release)** from the Run and Debug pan
 
 ---
 
+## 🤖 AI Study Assistant (Gemini Flash)
+
+Students can tap **Ask AI** on the home screen to get help when stuck.
+
+1. Create an API key at [Google AI Studio](https://aistudio.google.com/apikey).
+2. Copy the env template and add your key (`.env` is gitignored):
+
+   ```bash
+   cp .env.example .env
+   # Edit .env and set: GEMINI_API_KEY=your_actual_key
+   flutter pub get
+   flutter run
+   ```
+
+3. Optional CI/release override:
+
+   ```bash
+   flutter build apk --release --dart-define=GEMINI_API_KEY=your_key
+   ```
+
+> **Security:** `.env` is not committed to git, but it is bundled in the app assets at build time — keys can still be extracted from an APK. For Play Store production, use a backend proxy when possible.
+
+---
+
 ## 🛠️ Technologies Used
 
 - **Flutter**: The app framework.

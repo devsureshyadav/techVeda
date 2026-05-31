@@ -4,6 +4,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:tech_veda/data/courses_data.dart';
 import 'package:tech_veda/models/course.dart';
+import 'package:tech_veda/features/ai_assistant/screens/ai_chat_screen.dart';
 import 'package:tech_veda/features/version/provider/version_provider.dart';
 import 'package:tech_veda/screens/developer.dart';
 import 'package:tech_veda/theme/app_theme.dart';
@@ -63,6 +64,20 @@ class _HomePageState extends State<HomePage> {
 
     return Scaffold(
       backgroundColor: AppColors.background,
+      floatingActionButton: FloatingActionButton.extended(
+        onPressed: () => Get.to(
+          () => const AiChatScreen(),
+          transition: Transition.rightToLeft,
+          duration: const Duration(milliseconds: 300),
+        ),
+        backgroundColor: AppColors.accent,
+        foregroundColor: Colors.white,
+        icon: const Icon(Icons.auto_awesome_rounded),
+        label: Text(
+          'Ask AI',
+          style: GoogleFonts.plusJakartaSans(fontWeight: FontWeight.w700),
+        ),
+      ),
       body: CustomScrollView(
         physics: const BouncingScrollPhysics(
           parent: AlwaysScrollableScrollPhysics(),
@@ -102,7 +117,7 @@ class _HomePageState extends State<HomePage> {
                 childCount: categories.length,
               ),
             ),
-          const SliverToBoxAdapter(child: SizedBox(height: 32)),
+          const SliverToBoxAdapter(child: SizedBox(height: 88)),
         ],
       ),
     );

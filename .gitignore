@@ -52,3 +52,6 @@ app.*.map.json
 
 # Release symbol files
 /build/app/outputs/symbols/
+
+# Local secrets (use .env.example as template)
+.env
