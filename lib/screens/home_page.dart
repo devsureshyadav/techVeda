@@ -73,7 +73,7 @@ class _HomePageState extends State<HomePage> {
               searchController: _searchController,
               onSearchChanged: (value) => setState(() => _searchQuery = value),
               onDeveloperTap: () => Get.to(
-                () => const DeveloperContactInfo(),
+                () => const DeveloperDetailsScreen(),
                 transition: Transition.fadeIn,
                 duration: const Duration(milliseconds: 300),
               ),

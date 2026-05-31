@@ -27,7 +27,7 @@ class HomeHero extends StatelessWidget {
         fit: StackFit.expand,
         children: [
           Image.asset(
-            'assets/images/bg.png',
+            'assets/images/1.jpg',
             fit: BoxFit.cover,
             errorBuilder: (_, __, ___) => const DecoratedBox(
               decoration: BoxDecoration(gradient: AppColors.heroGradient),

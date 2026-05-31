@@ -30,6 +30,18 @@ abstract final class AppColors {
       Color(0xFF141428),
     ],
   );
+
+  /// Profile hero on developer screen — teal/cyan, distinct from achievements purple.
+  static const developerHeroGradient = LinearGradient(
+    begin: Alignment.topLeft,
+    end: Alignment.bottomRight,
+    colors: [
+      Color(0xFF0E7490),
+      Color(0xFF1E3A8A),
+      Color(0xFF0C1222),
+    ],
+    stops: [0.0, 0.55, 1.0],
+  );
 }
 
 ThemeData buildAppTheme() {
