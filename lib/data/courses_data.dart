@@ -5,6 +5,20 @@ const allCategoryId = 'all';
 
 final List<CourseCategory> courseCategories = [
   CourseCategory(
+    id: 'ai',
+    title: 'Artificial Intelligence',
+    icon: Icons.terminal_rounded,
+    accentColor: const Color(0xFF64B5F6),
+    courses: [
+      Course(
+        title: 'AI - Beginner to Advanced',
+        imagePath: 'assets/images/ai.jpeg',
+        pdfPath: 'assets/pdfs/AI.pdf',
+        subtitle: 'Beginner to Advanced',
+      ),
+    ],
+  ),
+  CourseCategory(
     id: 'basics',
     title: 'Basics',
     icon: Icons.terminal_rounded,

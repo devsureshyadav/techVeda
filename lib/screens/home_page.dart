@@ -36,9 +36,15 @@ class _HomePageState extends State<HomePage> {
     final providerInstance =
         Provider.of<VersionProvider>(context, listen: false);
     WidgetsBinding.instance.addPostFrameCallback((_) async {
-      final isUpdateAvailable =
-          await Provider.of<VersionProvider>(context, listen: false)
-              .checkForUpdate();
+      // 1. Try native Google Play in-app updates first
+      final nativeUpdateHandled = await providerInstance.checkForInAppUpdate();
+      if (nativeUpdateHandled) {
+        // Native update is already in progress or completed, exit flow.
+        return;
+      }
+
+      // 2. Fall back to custom Firestore update check if no native update was handled
+      final isUpdateAvailable = await providerInstance.checkForUpdate();
       if (!mounted || !isUpdateAvailable) return;
 
       showModernUpdateDialog(

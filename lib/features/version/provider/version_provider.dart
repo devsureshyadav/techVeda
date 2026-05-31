@@ -1,7 +1,8 @@
+import 'dart:io';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
+import 'package:in_app_update/in_app_update.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 
 class VersionProvider extends ChangeNotifier {
@@ -21,8 +22,50 @@ class VersionProvider extends ChangeNotifier {
   String get downloadUrl => _downloadUrl;
 
   VersionProvider() {
-    checkForUpdate();
+    // Empty constructor. update checks are triggered via HomePage after build frame.
   }
+
+  /// Checks for native Android in-app updates via Google Play Store.
+  /// If an update is available, it initiates either an immediate update
+  /// or a flexible update flow automatically.
+  /// Returns `true` if a native update flow was successfully started/executed,
+  /// and `false` if no native update was performed (so the app can fallback to
+  /// the custom Firestore-based update flow or normal execution).
+  Future<bool> checkForInAppUpdate() async {
+    if (!Platform.isAndroid) {
+      _logVersionIssue('Native in-app updates are only supported on Android.');
+      return false;
+    }
+
+    try {
+      _logVersionIssue('Checking for native Play Store update...');
+      final info = await InAppUpdate.checkForUpdate();
+
+      if (info.updateAvailability == UpdateAvailability.updateAvailable) {
+        _logVersionIssue(
+            'Native update available! Immediate: ${info.immediateUpdateAllowed}, Flexible: ${info.flexibleUpdateAllowed}');
+
+        if (info.immediateUpdateAllowed) {
+          _logVersionIssue('Starting immediate update flow...');
+          await InAppUpdate.performImmediateUpdate();
+          return true;
+        } else if (info.flexibleUpdateAllowed) {
+          _logVersionIssue('Starting flexible update flow...');
+          await InAppUpdate.startFlexibleUpdate();
+          _logVersionIssue('Flexible update downloaded! Completing update...');
+          await InAppUpdate.completeFlexibleUpdate();
+          return true;
+        }
+      } else {
+        _logVersionIssue('No native update available on Play Store.');
+      }
+      return false;
+    } catch (e) {
+      _logVersionIssue('Native in-app update check failed/not available: $e');
+      return false;
+    }
+  }
+
   //fetch latest version
   Future<bool> checkForUpdate() async {
     try {
@@ -58,12 +101,6 @@ class VersionProvider extends ChangeNotifier {
   void _logVersionIssue(String message) {
     if (kDebugMode) {
       debugPrint('[VersionProvider] $message');
-      Get.snackbar(
-        'Error',
-        message,
-        colorText: Colors.white,
-        backgroundColor: Colors.red,
-      );
     }
   }
 
