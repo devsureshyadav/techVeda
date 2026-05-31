@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:tech_veda/firebase_options.dart';
+import 'package:tech_veda/services/admob_service.dart';
 
 /// Production-oriented app initialization (release-safe defaults).
 Future<void> bootstrap(void Function() run) async {
@@ -21,6 +22,8 @@ Future<void> bootstrap(void Function() run) async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
+
+  await AdMobService.instance.initialize();
 
   if (kReleaseMode) {
     FlutterError.onError = (details) {

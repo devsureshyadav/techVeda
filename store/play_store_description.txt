@@ -1,0 +1,37 @@
+SHORT DESCRIPTION (max 80 characters)
+---
+Learn programming with PDF guides, AI help & courses — TechVeda by Suresh Yadav
+
+
+FULL DESCRIPTION
+---
+TechVeda is your pocket programming library — built for students who learn best with clear guides and quick help when they get stuck.
+
+📚 LEARN MULTIPLE TOPICS
+• C Programming — foundations and syntax
+• App Development — Dart, Flutter, Android
+• Python — core Python and web Python
+• Databases — MySQL, MongoDB, PostgreSQL, SQLite
+• Ethical hacking basics — roadmaps, Kali commands, Python for security learners
+
+📖 READ GUIDES IN THE APP
+Open curated PDF courses inside TechVeda. Search and filter by category. No need to hunt files across folders — everything is organized in one modern home screen.
+
+🤖 TECHVEDA AI — ASK WHEN YOU’RE STUCK
+Tap “Ask AI” for friendly explanations on concepts from your courses. TechVeda AI is built by Suresh Yadav to support learners in this app — your study companion, not a generic chatbot.
+
+👨‍💻 ABOUT THE DEVELOPER
+TechVeda is created by Suresh Yadav (sureshyadav.info.np), a full-stack developer from Nepal. View developer contact details and more published apps from the profile screen.
+
+✨ WHY TECHVEDA?
+• Clean, modern dark UI
+• Offline-friendly PDF guides
+• Category filters and search
+• Built for students and self-learners
+• Regular updates via in-app version check
+
+Download TechVeda and start learning today!
+
+---
+Package: com.nxgen.tech_veda
+Developer: Suresh Yadav

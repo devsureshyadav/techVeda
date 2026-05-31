@@ -1,15 +1,27 @@
-# 📖TechVeda
+# 📖 TechVeda
 
-TechVeda is a app that offers guide for various programming languages, helping users learn and compare languages like Python, Java, Flutter, Dart, and more in an interactive and user-friendly way.
+**TechVeda** is a free learning app for students who want clear, practical programming guides in one place. Browse curated PDF courses, search by topic, get unstuck with **TechVeda AI** (built by **Suresh Yadav**), and learn at your own pace—with a modern, easy-to-use interface.
+
+---
+
+## ✨ Features
+
+- **Course library** — Horizontal cards with search and category filters
+- **Offline PDF guides** — Read in-app (no extra apps needed)
+- **TechVeda AI** — Ask questions when you’re stuck (powered by Gemini Flash)
+- **Topics covered** — C, Dart, Flutter, Android, Python, databases, ethical hacking basics
+- **Developer profile** — Contact Suresh Yadav, portfolio, and published Play Store apps
+- **Auto-update check** — Notifies when a newer app version is available
 
 ---
 
 ## 🌟 Learn
 
-- **App Development**: Dart, Flutter, Android
-- **Python**: Basics Python, Web Python
-- **Hacking Basic Guide**:Learn Python, Ethical Hacking Roadmap, Kali linux commands
-- **Database**: MySQL,MongoDB,PostgreSQL and SQLite
+- **Basics** — C Programming
+- **App Development** — Dart, Flutter, Flutter Basics, Android (Java)
+- **Python** — Learn Python, Web Python
+- **Hacking (educational)** — Python for hackers, ethical hacking roadmap, Kali Linux commands
+- **Database** — MySQL, MongoDB, PostgreSQL, SQLite
 
 ---
 
@@ -118,12 +130,35 @@ Students can tap **Ask AI** on the home screen to get help when stuck.
 
 ---
 
+## 📢 AdMob
+
+Configured in `lib/config/ad_config.dart`:
+
+| Unit | ID |
+|------|-----|
+| App | `ca-app-pub-6713635279268340~6940175415` |
+| Interstitial | `.../4139741934` |
+| Banner 1–3 | `.../1869332040`, `.../1322006909`, `.../3108741617` |
+
+- **Banners:** after the first 3 course sections on home + sticky bottom (banner 3).
+- **Interstitial:** before **every** course PDF open; Ask AI / Developer use a 90s cooldown.
+- **Debug builds** use Google test ad units automatically.
+
+Link the app in [AdMob](https://admob.google.com/) and complete payment profile before live ads serve.
+
+---
+
 ## 🛠️ Technologies Used
 
-- **Flutter**: The app framework.
-- **Dart**: Programming language.
-- **Get Package**: For navigation and snackbars.
-- **syncfusion_flutter_pdfviewer** Package: To show pdf file
+- **Flutter** & **Dart**
+- **Firebase** — Firestore, Auth, Cloud Messaging
+- **Google Mobile Ads** — Banner & interstitial (AdMob)
+- **Gemini Flash** — AI study assistant
+- **Get** — Navigation
+- **Provider** — App state
+- **Syncfusion PDF Viewer** — In-app PDF reading
+- **flutter_dotenv** — Secure API key loading
+
 ---
 
 ## 📂 Project Structure
@@ -131,22 +166,21 @@ Students can tap **Ask AI** on the home screen to get help when stuck.
 ```plaintext
 techVeda/
 ├── lib/
-│   ├── screens/
-│   │   ├── home_page.dart
-│   │   ├── pdf_view.dart
-│   ├── providers/
-│   │   └── music_provider.dart
-│   ├── consts/
-│   │   └── consts.dart
-│   └── main.dart
-│   ├── widgets/
-│   │   └── text.dart
+│   ├── main.dart
+│   ├── bootstrap.dart
+│   ├── config/          # API keys, AdMob IDs
+│   ├── data/            # Course catalog
+│   ├── features/
+│   │   ├── ai_assistant/
+│   │   └── version/
+│   ├── screens/         # Home, PDF, Developer
+│   ├── services/        # AdMob
+│   ├── theme/
+│   └── widgets/
 ├── assets/
 │   ├── images/
-│   │   └── dart.png
-│   ├── pdfs/
-│       └── Commands.pdf
-│       └── ......
+│   └── pdfs/
+├── android/
 └── pubspec.yaml
 ```
 

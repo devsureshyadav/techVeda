@@ -6,6 +6,7 @@ import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:tech_veda/models/course.dart';
 import 'package:tech_veda/screens/pdf_view.dart';
+import 'package:tech_veda/services/admob_service.dart';
 import 'package:tech_veda/theme/app_theme.dart';
 
 class CourseCard extends StatefulWidget {
@@ -29,16 +30,18 @@ class CourseCard extends StatefulWidget {
 class _CourseCardState extends State<CourseCard> {
   bool _pressed = false;
 
-  void _openCourse() {
+  Future<void> _openCourse() async {
     HapticFeedback.lightImpact();
-    Get.to(
-      () => PDFViewerScreen(
-        title: widget.course.title,
-        path: widget.course.pdfPath,
-      ),
-      transition: Transition.cupertino,
-      duration: const Duration(milliseconds: 350),
-    );
+    await AdMobService.instance.showCourseInterstitialThen(() {
+      Get.to(
+        () => PDFViewerScreen(
+          title: widget.course.title,
+          path: widget.course.pdfPath,
+        ),
+        transition: Transition.cupertino,
+        duration: const Duration(milliseconds: 350),
+      );
+    });
   }
 
   @override

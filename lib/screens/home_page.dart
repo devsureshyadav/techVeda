@@ -5,12 +5,15 @@ import 'package:provider/provider.dart';
 import 'package:tech_veda/data/courses_data.dart';
 import 'package:tech_veda/models/course.dart';
 import 'package:tech_veda/features/ai_assistant/screens/ai_chat_screen.dart';
+import 'package:tech_veda/services/admob_service.dart';
 import 'package:tech_veda/features/version/provider/version_provider.dart';
 import 'package:tech_veda/screens/developer.dart';
 import 'package:tech_veda/theme/app_theme.dart';
 import 'package:tech_veda/widgets/home/category_filter_bar.dart';
 import 'package:tech_veda/widgets/home/course_section.dart';
 import 'package:tech_veda/widgets/home/home_hero.dart';
+import 'package:tech_veda/config/ad_config.dart';
+import 'package:tech_veda/widgets/ads/banner_ad_widget.dart';
 import 'package:tech_veda/widgets/home/update_dialog.dart';
 
 class HomePage extends StatefulWidget {
@@ -58,18 +61,48 @@ class _HomePageState extends State<HomePage> {
         query: _searchQuery,
       );
 
+  int _homeListItemCount(int categoryCount) {
+    if (categoryCount == 0) return 0;
+    final bannerSlots = categoryCount < AdConfig.productionBanners.length
+        ? categoryCount
+        : AdConfig.productionBanners.length;
+    return categoryCount + bannerSlots;
+  }
+
+  Widget _buildHomeListItem(List<CourseCategory> categories, int index) {
+    var listIndex = 0;
+    for (var i = 0; i < categories.length; i++) {
+      if (listIndex++ == index) {
+        return CourseSection(category: categories[i]);
+      }
+      if (i < AdConfig.productionBanners.length) {
+        if (listIndex++ == index) {
+          return BannerAdWidget(bannerIndex: i);
+        }
+      }
+    }
+    return const SizedBox.shrink();
+  }
+
   @override
   Widget build(BuildContext context) {
     final categories = _visibleCategories;
 
     return Scaffold(
       backgroundColor: AppColors.background,
+      bottomNavigationBar: const SafeArea(
+        child: BannerAdWidget(bannerIndex: 2),
+      ),
       floatingActionButton: FloatingActionButton.extended(
-        onPressed: () => Get.to(
-          () => const AiChatScreen(),
-          transition: Transition.rightToLeft,
-          duration: const Duration(milliseconds: 300),
-        ),
+        onPressed: () {
+          AdMobService.instance.showInterstitialThen(() {
+            Get.to(
+              () => const AiChatScreen(),
+              transition: Transition.rightToLeft,
+              duration: const Duration(milliseconds: 300),
+            );
+          });
+        },
         backgroundColor: AppColors.accent,
         foregroundColor: Colors.white,
         icon: const Icon(Icons.auto_awesome_rounded),
@@ -87,11 +120,15 @@ class _HomePageState extends State<HomePage> {
             child: HomeHero(
               searchController: _searchController,
               onSearchChanged: (value) => setState(() => _searchQuery = value),
-              onDeveloperTap: () => Get.to(
-                () => const DeveloperDetailsScreen(),
-                transition: Transition.fadeIn,
-                duration: const Duration(milliseconds: 300),
-              ),
+              onDeveloperTap: () {
+                AdMobService.instance.showInterstitialThen(() {
+                  Get.to(
+                    () => const DeveloperDetailsScreen(),
+                    transition: Transition.fadeIn,
+                    duration: const Duration(milliseconds: 300),
+                  );
+                });
+              },
             ),
           ),
           SliverToBoxAdapter(
@@ -111,13 +148,11 @@ class _HomePageState extends State<HomePage> {
           else
             SliverList(
               delegate: SliverChildBuilderDelegate(
-                (context, index) => CourseSection(
-                  category: categories[index],
-                ),
-                childCount: categories.length,
+                (context, index) => _buildHomeListItem(categories, index),
+                childCount: _homeListItemCount(categories.length),
               ),
             ),
-          const SliverToBoxAdapter(child: SizedBox(height: 88)),
+          const SliverToBoxAdapter(child: SizedBox(height: 100)),
         ],
       ),
     );
