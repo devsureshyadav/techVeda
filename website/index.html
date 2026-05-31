@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechVeda | Master Programming & Learn with AI</title>
+    <meta name="description" content="TechVeda is a free learning app for students featuring clear programming guides, interactive offline course PDFs, and Gemini-powered AI tutoring. Built by Suresh Yadav.">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="assets/icon.png">
+</head>
+<body>
+    <!-- Background Glowing Orbs -->
+    <div class="glow-orb orb-1"></div>
+    <div class="glow-orb orb-2"></div>
+    <div class="glow-orb orb-3"></div>
+
+    <!-- Navigation Header -->
+    <header id="header" class="glass-nav">
+        <div class="nav-container">
+            <a href="#" class="nav-logo">
+                <img src="assets/icon.png" alt="TechVeda Logo" class="logo-img">
+                <span class="logo-text">Tech<span>Veda</span></span>
+            </a>
+            
+            <nav class="nav-menu" id="nav-menu">
+                <ul>
+                    <li><a href="#features" class="nav-link active">Features</a></li>
+                    <li><a href="#courses" class="nav-link">Courses</a></li>
+                    <li><a href="#ai-assistant" class="nav-link">AI Assistant</a></li>
+                    <li><a href="#developer" class="nav-link">Developer</a></li>
+                </ul>
+            </nav>
+
+            <div class="nav-actions">
+                <a href="#download" class="btn btn-primary btn-sm">Download App</a>
+                <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section" id="hero">
+        <div class="container hero-grid">
+            <div class="hero-content">
+                <div class="badge">🚀 Free Learning App</div>
+                <h1 class="hero-title">Master Coding. <br>Get Unstuck with <span class="gradient-text">Gemini AI</span>.</h1>
+                <p class="hero-subtitle">
+                    TechVeda provides clear, practical programming guides in one unified experience. Browse curated offline courses, search any topic, and converse with a personalized study assistant.
+                </p>
+                <div class="hero-actions">
+                    <a href="#download" class="btn btn-primary">
+                        <svg class="btn-icon" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M5,20H19V18H5M19,9H15V3H9V9H5L12,16L19,9Z" />
+                        </svg>
+                        Get the App
+                    </a>
+                    <a href="#ai-assistant" class="btn btn-secondary">
+                        <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                        </svg>
+                        Try AI Simulator
+                    </a>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <span class="stat-number">15+</span>
+                        <span class="stat-label">Tech Courses</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">100%</span>
+                        <span class="stat-label">Offline Accessible</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">0$</span>
+                        <span class="stat-label">Fully Free</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Hero Phone Mockup -->
+            <div class="hero-showcase">
+                <div class="phone-mockup-wrapper">
+                    <div class="phone-mockup">
+                        <div class="phone-screen">
+                            <div class="carousel-container">
+                                <img src="assets/screens/screen1.png" alt="TechVeda Screen 1" class="screen-img active">
+                                <img src="assets/screens/screen2.png" alt="TechVeda Screen 2" class="screen-img">
+                                <img src="assets/screens/screen3.png" alt="TechVeda Screen 3" class="screen-img">
+                            </div>
+                        </div>
+                        <div class="phone-speaker"></div>
+                        <div class="phone-button"></div>
+                    </div>
+                    <div class="screen-indicators">
+                        <span class="indicator active" data-slide="0"></span>
+                        <span class="indicator" data-slide="1"></span>
+                        <span class="indicator" data-slide="2"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features-section" id="features">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Engineered for Students</h2>
+                <p class="section-subtitle">Everything you need to learn programming from scratch, packed into a smooth, distraction-free environment.</p>
+            </div>
+            
+            <div class="features-grid">
+                <!-- Feature 1 -->
+                <div class="feature-card glass-card">
+                    <div class="feature-icon bg-blue">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+                            <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="feature-title">In-App PDF Reader</h3>
+                    <p class="feature-text">High-performance offline PDF guides powered by Syncfusion. Learn on-the-go without needing external reader apps or active internet.</p>
+                </div>
+
+                <!-- Feature 2 -->
+                <div class="feature-card glass-card">
+                    <div class="feature-icon bg-purple">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+                            <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
+                            <line x1="12" y1="22.08" x2="12" y2="12"></line>
+                        </svg>
+                    </div>
+                    <h3 class="feature-title">TechVeda AI Assistant</h3>
+                    <p class="feature-text">Integrated Gemini Flash AI tutor. Got stuck on an error or database query? Ask the AI and get simplified conceptual breakdowns.</p>
+                </div>
+
+                <!-- Feature 3 -->
+                <div class="feature-card glass-card">
+                    <div class="feature-icon bg-cyan">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                        </svg>
+                    </div>
+                    <h3 class="feature-title">Distraction-Free Banners</h3>
+                    <p class="feature-text">AdMob is fully optimized to preserve your learning flows. Banners are cleanly integrated and interstitials only load during navigation transitions.</p>
+                </div>
+
+                <!-- Feature 4 -->
+                <div class="feature-card glass-card">
+                    <div class="feature-icon bg-green">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <polyline points="12 6 12 12 16 14"></polyline>
+                        </svg>
+                    </div>
+                    <h3 class="feature-title">Smart Update System</h3>
+                    <p class="feature-text">Features automated version checks that silently notify you when newer courses or performance enhancements are available for download.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Course Library Section -->
+    <section class="courses-section" id="courses">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Explore the Course Hub</h2>
+                <p class="section-subtitle">Browse through our structured list of programming manuals, database references, and security roadmaps.</p>
+            </div>
+
+            <!-- Interactive Filters -->
+            <div class="courses-filter-wrapper">
+                <div class="search-box glass-card">
+                    <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                    </svg>
+                    <input type="text" id="course-search" placeholder="What do you want to learn today? (e.g. Flutter, SQLite, Python)...">
+                </div>
+
+                <div class="filter-pills" id="filter-pills">
+                    <button class="pill active" data-category="all">All Courses</button>
+                    <button class="pill" data-category="basics">Basics</button>
+                    <button class="pill" data-category="app_dev">App Dev</button>
+                    <button class="pill" data-category="python">Python</button>
+                    <button class="pill" data-category="hacking">Hacking</button>
+                    <button class="pill" data-category="database">Databases</button>
+                </div>
+            </div>
+
+            <!-- Dynamic Courses Grid -->
+            <div class="courses-grid-container" id="courses-grid">
+                <!-- Injected via JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Gemini AI Simulator Section -->
+    <section class="ai-section" id="ai-assistant">
+        <div class="container ai-grid">
+            <div class="ai-content">
+                <div class="badge bg-purple-badge">🧠 Interactive Demo</div>
+                <h2 class="section-title">Ask TechVeda AI</h2>
+                <p class="section-subtitle">
+                    In the mobile app, students can trigger **TechVeda AI** (powered by Gemini 1.5 Flash) on any screen to clear coding doubts.
+                </p>
+                <p class="ai-description-text">
+                    Experience it live right here! Select one of the frequently asked student doubts on the right or type a custom programming query, and watch the AI tutor compile a clear, conceptual breakdown.
+                </p>
+
+                <!-- Custom doubt buttons -->
+                <div class="prompt-chips">
+                    <button class="chip" data-prompt="explain-pointers">Pointer Concept in C</button>
+                    <button class="chip" data-prompt="flutter-state">Stateful vs Stateless Widgets</button>
+                    <button class="chip" data-prompt="python-comprehension">Python List Comprehension</button>
+                    <button class="chip" data-prompt="sql-injection">What is SQL Injection?</button>
+                </div>
+            </div>
+
+            <!-- Interactive Chat Simulator -->
+            <div class="chat-wrapper glass-card">
+                <div class="chat-header">
+                    <div class="bot-avatar">
+                        <img src="assets/icon.png" alt="TechVeda Bot Icon">
+                        <div class="online-indicator"></div>
+                    </div>
+                    <div class="bot-info">
+                        <h4 class="bot-name">TechVeda AI</h4>
+                        <span class="bot-status">Powered by Gemini Flash</span>
+                    </div>
+                </div>
+                
+                <div class="chat-messages" id="chat-messages">
+                    <div class="message received">
+                        <div class="message-text">
+                            Hello! I am your TechVeda Study Assistant. Got stuck while reading a course? Ask me any programming or database question, and I'll explain it simply.
+                        </div>
+                        <span class="message-time">Just Now</span>
+                    </div>
+                </div>
+
+                <div class="chat-typing-indicator" id="typing-indicator">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+
+                <form class="chat-input-area" id="chat-form">
+                    <input type="text" id="chat-input" placeholder="Ask a programming question..." required autocomplete="off">
+                    <button type="submit" class="send-btn" aria-label="Send Message">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="22" y1="2" x2="11" y2="13"></line>
+                            <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                        </svg>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Developer Section -->
+    <section class="developer-section" id="developer">
+        <div class="container">
+            <div class="glass-card developer-card-wrapper">
+                <div class="dev-glow-gradient"></div>
+                <div class="developer-content-grid">
+                    <div class="developer-details">
+                        <div class="dev-badge">👨‍💻 Meet the Developer</div>
+                        <h2 class="dev-name">Suresh Yadav</h2>
+                        <span class="dev-role">Mobile & Fullstack App Developer</span>
+                        
+                        <p class="dev-bio">
+                            I designed and developed **TechVeda** to solve a common student problem: scattered and complex learning guides. By combining high-performance offline PDFs with custom Google Gemini integrations, TechVeda serves as a compact, intelligent tutor.
+                        </p>
+                        
+                        <div class="dev-stats">
+                            <div class="dev-stat">
+                                <span class="dev-stat-num">3+</span>
+                                <span class="dev-stat-label">Apps Published</span>
+                            </div>
+                            <div class="dev-stat">
+                                <span class="dev-stat-num">Flutter</span>
+                                <span class="dev-stat-label">Primary Stack</span>
+                            </div>
+                        </div>
+
+                        <div class="developer-actions">
+                            <a href="http://sureshyadav.info.np" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+                                <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <circle cx="12" cy="12" r="10"></circle>
+                                    <line x1="2" y1="12" x2="22" y2="12"></line>
+                                    <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+                                </svg>
+                                Visit Portfolio
+                            </a>
+                            <a href="mailto:sureshyadav.info.np@gmail.com" class="btn btn-secondary">
+                                <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                                    <polyline points="22,6 12,13 2,6"></polyline>
+                                </svg>
+                                Contact Suresh
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Download Call To Action (CTA) -->
+    <section class="download-section" id="download">
+        <div class="container glass-card download-card">
+            <div class="download-glow"></div>
+            <div class="download-content">
+                <h2 class="download-title">Elevate Your Coding Skills Today</h2>
+                <p class="download-subtitle">Download TechVeda for Android entirely free. No logins required, just pure knowledge powered by state-of-the-art AI tutoring.</p>
+                <div class="download-buttons">
+                    <a href="https://play.google.com/store/apps/developer?id=Suresh+Yadav" target="_blank" rel="noopener noreferrer" class="playstore-btn">
+                        <img src="assets/playstore.png" alt="Get it on Google Play Store" class="playstore-img">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-grid">
+            <div class="footer-brand">
+                <a href="#" class="nav-logo">
+                    <img src="assets/icon.png" alt="TechVeda Logo" class="logo-img">
+                    <span class="logo-text">Tech<span>Veda</span></span>
+                </a>
+                <p class="footer-desc">Empowering students through accessible coding tutorials and intelligent AI-powered mentorship.</p>
+            </div>
+            
+            <div class="footer-links">
+                <h4>Platform</h4>
+                <ul>
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#courses">Course Hub</a></li>
+                    <li><a href="#ai-assistant">TechVeda AI</a></li>
+                    <li><a href="#download">Get Android App</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-links">
+                <h4>Legal</h4>
+                <ul>
+                    <li><a href="privacy.html">Privacy Policy</a></li>
+                    <li><a href="terms.html">Terms & Conditions</a></li>
+                </ul>
+            </div>
+ 
+            <div class="footer-links">
+                <h4>Developer</h4>
+                <ul>
+                    <li><a href="http://sureshyadav.info.np" target="_blank" rel="noopener">Official Website</a></li>
+                    <li><a href="mailto:sureshyadav.info.np@gmail.com">Support Mail</a></li>
+                    <li><a href="https://github.com/0sureshyadav0/techVeda" target="_blank" rel="noopener">GitHub Project</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="container footer-bottom-flex">
+                <p class="copyright">&copy; 2026 TechVeda. Built by <a href="http://sureshyadav.info.np" target="_blank" rel="noopener">Suresh Yadav</a>. All Rights Reserved.</p>
+                <p class="mit-license">Licensed under MIT License</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Custom JS -->
+    <script src="js/main.js"></script>
+</body>
+</html>
