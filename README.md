@@ -48,10 +48,49 @@ TechVeda is a app that offers guide for various programming languages, helping u
    flutter pub get
    ```
 
-4. Run the app:
+4. Run the app (debug):
    ```bash
    flutter run
    ```
+
+---
+
+## 📦 Production / release build
+
+### Run on device in release mode
+```bash
+flutter run --release
+```
+
+Or in VS Code / Cursor: choose **TechVeda (release)** from the Run and Debug panel.
+
+### Build release APK (Play Store / distribution)
+
+1. Create an upload keystore under `android/app/` (once), or use your existing `android/app/upload-keystore.jks`:
+   ```bash
+   keytool -genkey -v -keystore android/app/upload-keystore.jks -keyalg RSA -keysize 2048 -validity 10000 -alias upload
+   ```
+
+2. Copy `android/key.properties.example` → `android/key.properties` and set passwords. Keep `storeFile=upload-keystore.jks` (path is relative to `android/app/`).
+
+3. Build:
+   ```bash
+   chmod +x scripts/build_release_apk.sh
+   ./scripts/build_release_apk.sh
+   ```
+   Output: `build/app/outputs/flutter-apk/app-release.apk`
+
+   Manual equivalent:
+   ```bash
+   flutter build apk --release --obfuscate --split-debug-info=build/app/outputs/symbols
+   ```
+
+4. For Google Play (App Bundle):
+   ```bash
+   flutter build appbundle --release --obfuscate --split-debug-info=build/app/outputs/symbols
+   ```
+
+> Without `android/key.properties`, release builds still compile but are signed with the **debug** key (not valid for Play Store upload).
 
 ---
 

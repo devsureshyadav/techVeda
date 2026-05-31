@@ -43,3 +43,12 @@ app.*.map.json
 /android/app/debug
 /android/app/profile
 /android/app/release
+
+# Release signing (never commit secrets)
+/android/key.properties
+**/*.jks
+**/*.keystore
+/android/app/upload-keystore.jks
+
+# Release symbol files
+/build/app/outputs/symbols/

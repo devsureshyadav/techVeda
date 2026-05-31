@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:package_info_plus/package_info_plus.dart';
@@ -33,9 +34,7 @@ class VersionProvider extends ChangeNotifier {
           .get();
 
       if (!snapshot.exists) {
-        Get.snackbar('Error', 'Latest version not found in Firestore.',
-            colorText: Colors.white, backgroundColor: Colors.red);
-
+        _logVersionIssue('Latest version not found in Firestore.');
         return false;
       }
 
@@ -51,9 +50,20 @@ class VersionProvider extends ChangeNotifier {
         return false;
       }
     } catch (e) {
-      Get.snackbar('Error', 'Error checking for update: $e',
-          colorText: Colors.white, backgroundColor: Colors.red);
+      _logVersionIssue('Error checking for update: $e');
       return false;
+    }
+  }
+
+  void _logVersionIssue(String message) {
+    if (kDebugMode) {
+      debugPrint('[VersionProvider] $message');
+      Get.snackbar(
+        'Error',
+        message,
+        colorText: Colors.white,
+        backgroundColor: Colors.red,
+      );
     }
   }
 
